@@ -1,0 +1,7 @@
+<% @tools.each do |listing| %>
+  <strong><%= listing.tool %></strong>
+  <div><%= listing.price %></div>
+  <div><%= listing.location %></div>
+  <%= link_to "View Tool", listing %>
+  <br><br>
+<% end %>

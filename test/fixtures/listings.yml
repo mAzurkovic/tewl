@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tool: MyString
+  price: 9.99
+  location: MyString
+
+two:
+  tool: MyString
+  price: 9.99
+  location: MyString
