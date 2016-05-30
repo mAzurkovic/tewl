@@ -2,6 +2,8 @@
   <strong><%= listing.tool %></strong>
   <div><%= listing.price %></div>
   <div><%= listing.location %></div>
+  <div><%= listing.user.email if listing.user %></div>
   <%= link_to "View Tool", listing %>
+  <%= link_to "Delete", listing, method: :delete, data: { confirm: "You are about to delete this listing" } %>
   <br><br>
 <% end %>

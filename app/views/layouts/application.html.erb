@@ -8,6 +8,36 @@
 </head>
 <body>
 
+<nav class="#ffa000 amber darken-2" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/" class="brand-logo">Tewl</a>
+    <% if user_signed_in? %>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#"><%= listings.user.email %></a></li>
+      <li><a href="/listings/new">Add a Tool</a></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete  %></li>
+    </ul>
+    <% else %>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <li><%= link_to "Start Lending", new_user_registration_path %></li>
+      <li><%= link_to "Start Borrowing", new_user_registration_path %></li>
+    </ul>
+    <% end %>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<br>
+<br>
+<br>
+
 <%= yield %>
 
 </body>
