@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :must_be_lender, only: [:new, :create, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   # before_action :authorized_user, only: [:edit, :update, :destroy]
@@ -48,6 +49,12 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def must_be_lender
+    unless current_user && current_user.is_lender?
+      redirect_to root_path, notice: "Some message"
+    end
+  end
 
   def find_post
     @tool = Listing.find(params[:id])
