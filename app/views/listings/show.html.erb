@@ -1,3 +1,9 @@
 <h2><%= @tool.tool %></h2>
-<div><strong>Rental Price:</strong> <%= @tool.price %></div>
-<div><strong>Lender location:</strong> <%= @tool.location %></div>
+<div><b>Rental Price:</b> <%= @tool.price %></div>
+<div><b>Lender location:</b> <%= @tool.location %></div>
+<div><b>Payment link:</b> <%= @tool.user.payment_url %> </div>
+
+<% if @tool.user == current_user %>
+  <%= link_to 'Edit', edit_listing_path(@tool) %>
+  <%= link_to 'Delete', listing_path(@tool), method: :delete, data: { confirm: "You are about to delete this listing" } %>
+<% end %>

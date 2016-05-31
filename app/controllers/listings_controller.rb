@@ -1,10 +1,8 @@
 class ListingsController < ApplicationController
-  #before_action :set_post, :only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!,
-    :only => [:destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authorized_user, only: [:edit, :update, :destroy]
 
-  before_filter :find_post!,
-    :only => [:destroy]
 
   def index
     @tools = Listing.all.order('created_at DESC')
@@ -41,7 +39,19 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @tool.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Link was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
+
+  def find_post
+    @tool = Listing.find(params[:id])
+  end
 
   def query_p
     params.require(:listing).permit(:tool, :price, :location)
