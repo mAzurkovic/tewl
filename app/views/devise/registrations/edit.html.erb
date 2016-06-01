@@ -4,6 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -27,6 +32,18 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+
+  <div id="check"><%= f.check_box :is_lender, {}, true %> <%= f.label :is_lender, "Become a lender?" %> </div>
+
+  <div class="field" id="paypal" style="display:none;">
+    <%= f.label :payment_url %><br />
+    <%= f.text_field :payment_url %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -37,3 +54,18 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<script type="text/javascript">
+
+  var checkBox = document.getElementById('user_is_lender');
+  var paypalInfo = document.getElementById('paypal');
+
+  checkBox.onchange = function() {
+     if(this.checked) {
+       paypalInfo.style['display'] = 'block';
+     } else {
+       paypalInfo.style['display'] = 'none';
+     }
+  };
+
+</script>
