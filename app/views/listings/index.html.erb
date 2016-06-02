@@ -1,7 +1,8 @@
 <% @tools.each do |listing| %>
   <b><%= link_to listing.tool, listing %></b>
   <div><%= listing.price %></div>
-  <div><%= listing.user.name if listing.user %></div>
+  <!--<div><%= listing.user.name if listing.user %></div> -->
+  <div><%= link_to listing.user.name, listing.user %></div>
   <div><%= listing.user.location %></div>
   <div>Created <%= time_ago_in_words(listing.created_at) %> ago</div>
   <br>
