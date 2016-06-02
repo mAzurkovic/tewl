@@ -1,5 +1,6 @@
 <% @tools.each do |listing| %>
   <b><%= link_to listing.tool, listing %></b>
+  <div><%= image_tag listing.image.url(:thumb) %></div>
   <div><%= listing.price %></div>
   <!--<div><%= listing.user.name if listing.user %></div> -->
   <div><%= link_to listing.user.name, listing.user %></div>
