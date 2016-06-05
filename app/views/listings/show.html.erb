@@ -1,7 +1,7 @@
 <h2><%= @tool.tool %></h2>
 <div><%= image_tag @tool.image.url(:medium) %></div>
 <div><b>Rental Price:</b> <%= @tool.price %></div>
-<div><b>Lender location:</b> <%= @tool.location %></div>
+<div><b>Lender location:</b> <%= @tool.user.location %></div>
 <div><b>Payment link:</b> <%= @tool.user.payment_url %> </div>
 
 <% if @tool.user == current_user %>
