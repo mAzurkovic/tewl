@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602015610) do
+ActiveRecord::Schema.define(version: 20160606025515) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "tool"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160602015610) do
     t.string   "location"
     t.boolean  "is_lender",              default: false
     t.string   "payment_url"
+    t.decimal  "rating"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

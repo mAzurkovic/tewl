@@ -4,6 +4,9 @@
 <div><b>Lender location:</b> <%= @tool.user.location %></div>
 <div><b>Payment link:</b> <%= @tool.user.payment_url %> </div>
 
+<a class="waves-effect waves-light btn"><i class="material-icons right">swap_horiz</i>Rent</a>
+<br>
+
 <% if @tool.user == current_user %>
   <%= link_to 'Edit', edit_listing_path(@tool) %>
   <%= link_to 'Delete', listing_path(@tool), method: :delete, data: { confirm: "You are about to delete this listing" } %>
