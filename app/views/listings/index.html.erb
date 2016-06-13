@@ -5,6 +5,6 @@
   <!--<div><%= listing.user.name if listing.user %></div> -->
   <div><%= link_to listing.user.name, listing.user %></div>
   <div><%= listing.user.location %></div>
-  <div>Created <%= time_ago_in_words(listing.created_at) %> ago</div>
+  <div>Posted <%= time_ago_in_words(listing.created_at) %> ago</div>
   <br>
 <% end %>
